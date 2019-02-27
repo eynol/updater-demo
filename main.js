@@ -3,9 +3,16 @@ const path = require("path");
 const utils = require("./utils.js");
 const { execPromise } = utils;
 
-const { CLI_DIR, PROJ_DIR, CACHE_DIR, PROJ_BOIL_PATH: PROJ_BOIL } = require("./variables");
+const {
+  CLI_DIR,
+  PROJ_DIR,
+  CACHE_DIR,
+  PROJ_BOIL_PATH: PROJ_BOIL
+} = require("./variables");
 
 const IS_BARE_PROJECT = fs.existsSync(PROJ_BOIL);
+
+process.env.debug = process.argv.some(v => /^--debug$/.test(v));
 
 let currentVersion;
 currentVersion = require(PROJ_BOIL).version;

@@ -11,7 +11,10 @@ const {
 const methods = require("./updateMethods");
 
 exports.update = async function(version) {
-  await checkoutVersion(version);
+
+  if(process.env.debug){
+    await checkoutVersion(version);
+  }
 
   let config = await readUpdateConfig();
   if (config === null) {
@@ -21,7 +24,7 @@ exports.update = async function(version) {
 
   // 1. 先处理package.json里的依赖
   await methods.resolveDepenendencies(config);
-  
+
 };
 
 /**
