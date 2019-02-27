@@ -53,7 +53,7 @@ process.argv.splice(0, 2);
   config.version = version;
   fs.writeFileSync("./.boilerplate.json", JSON.stringify(config, null, 2));
 
-  console.log(await execPromise(`git add .boilerplate.json && git commit -m "[Auto] Override version" && git tag ${version} && git push -t`));
+  console.log(await execPromise(`git add .boilerplate.json && git commit -m "[Auto] Override version" && git tag ${version} && git push --tags`));
   
   console.log(await execPromise("cat ./.boilerplate.json"));
 })();
