@@ -62,8 +62,12 @@ process.argv.splice(0, 2);
   git push --tags                           # 推送所有的tags
   
   `)
-
-  console.log(await execPromise(`git add .boilerplate.json && git commit -m "[Auto] Override version" && git tag ${version} && git push && git push --tags`));
+  try{
+    await execPromise(`git add .boilerplate.json && git commit -m "[Auto] Override version" `)
+  }catch(e){
+    // 如果本地的 boilerplate.json 的版本已经是需要打上标签的版本，上一句可能会执行出错
+  }
+  console.log(await execPromise(`git tag ${version} && git push && git push --tags`));
   
   console.log(await execPromise("cat ./.boilerplate.json"));
 })();
