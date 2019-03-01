@@ -6,5 +6,26 @@
         "webpack-bundle-analyzer": "^3.0.3",
         "webpack-dev-middleware": "^3.4.0",
         "webpack-hot-middleware": "^2.24.3"
+    },
+    "dependenciesToRemove": [
+        "babel-plugin-add-module-exports",
+        "babel-plugin-import",
+        "babel-plugin-react-display-name",
+        "babel-preset-env",
+        "babel-preset-react",
+        "babel-preset-react-hmre",
+        "babel-preset-stage-1",
+        "babel-preset-stage-2"
+    ],
+    "override": [
+        "babel.config.js",
+        "webpack.common.dev.js",
+        "webpack.common.dll.js",
+        "webpack.common.prod.js",
+        "tools/srcServer.js",
+        "tools/loader/ftl-loader.js"
+    ],
+    "script": {
+        "package.json": "./u/updateJest.js"
     }
 }

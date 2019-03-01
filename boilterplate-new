@@ -1,0 +1,8 @@
+# 这个文件只是给 ysf-cli 工具使用，在执行 ysf new projectName 命令之后，会删除这些列举的文件或者文件夹
+# This file is used for 'ysf new projectName' command.
+# The ysf-cli will delete folders or files named here after create a new project.
+.git                # 删除 git 信息
+boilerplate-new     # 删除自身文件
+configVersion.js    # 模版工具的小脚本
+syncVersions.js     # 模版工具的小脚本
+u                   # 删除 update 的 folder
